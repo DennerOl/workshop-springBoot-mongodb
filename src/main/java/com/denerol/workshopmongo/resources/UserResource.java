@@ -59,16 +59,16 @@ public class UserResource {
 		service.delete(id);
 		return ResponseEntity.noContent().build();
 	}
-/*	
+	
 	@RequestMapping(value="/{id}",method=RequestMethod.PUT)
-	public ResponseEntity<void> update(@RequestBody UserDTO objDto, @PathVariable String id){
+	public  ResponseEntity<Object> update(@RequestBody UserDTO objDto, @PathVariable String id){
 		User obj = service.fromDTO(objDto);
 		obj.setId(id);
 		obj = service.update(obj);
 		return ResponseEntity.noContent().build();
 	}
 
-*/	
+	
 	
 	/*Metodo retorna os posts de um usuario
 	 * 	
