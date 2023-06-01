@@ -67,5 +67,17 @@ public class UserResource {
 		obj = service.update(obj);
 		return ResponseEntity.noContent().build();
 	}
+
 */	
+	
+	/*Metodo retorna os posts de um usuario
+	 * 	
+	 */
+		@RequestMapping(value="/{id}/posts",method=RequestMethod.DELETE)
+		public UserDTO findPosts(@PathVariable String id){
+			Optional<User> obj = service.findById(id);
+			User user = obj.get();
+			UserDTO dto = new UserDTO(user);
+			return dto;
+		}
 }
