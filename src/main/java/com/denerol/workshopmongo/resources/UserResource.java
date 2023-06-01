@@ -53,4 +53,10 @@ public class UserResource {
 				.buildAndExpand(obj.getId()).toUri();
 		return ResponseEntity.created(uri).build();
 	}
+// metodo para deletar um user pelo id	
+	@RequestMapping(value="/{id}",method=RequestMethod.DELETE)
+	public ResponseEntity<Void> delete(@PathVariable String id){
+		service.delete(id);
+		return ResponseEntity.noContent().build();
+	}
 }
