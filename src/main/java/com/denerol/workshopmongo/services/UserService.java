@@ -51,4 +51,15 @@ public class UserService {
 		findById(id);
 		repo.deleteById(id);
 	}
+	
+// atualizar um usuario
+	public UserDTO update(User obj) {
+		User entity = new User();
+		entity.setName(obj.getName());
+		entity.setEmail(obj.getEmail());
+		entity = repo.save(entity);
+		return new UserDTO(entity);
+	}
+	
+	
 }
