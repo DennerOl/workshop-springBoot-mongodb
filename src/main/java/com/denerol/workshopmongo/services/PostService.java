@@ -1,5 +1,6 @@
 package com.denerol.workshopmongo.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,11 @@ public class PostService {
 			throw new ObjectNotFoundException("Objeto não encontrado");
 		}
 		return user;
+	}
+	
+// metodo para usar o metodo do repository
+	public List<Post> findByTitle(String text){
+		return repo.findByTitleContainingIgnoreCase(text);
 	}
 	
 }

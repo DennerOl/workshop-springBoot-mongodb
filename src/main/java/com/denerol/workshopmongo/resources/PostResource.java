@@ -1,16 +1,17 @@
 package com.denerol.workshopmongo.resources;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.denerol.workshopmongo.domain.Post;
-import com.denerol.workshopmongo.domain.User;
-import com.denerol.workshopmongo.dto.UserDTO;
+import com.denerol.workshopmongo.resources.util.URL;
 import com.denerol.workshopmongo.services.PostService;
 
 @RestController
@@ -29,4 +30,10 @@ public class PostResource {
 	}
 	
 
+	@RequestMapping(value="/titlesearch",method=RequestMethod.GET)
+	public List<Post> findByTitle(@RequestParam(value="text", defaultValue="") String text) {
+		text = URL.decodeParam(text);
+		List<Post> list = service.findByTitle(text);
+		return list;
+	}
 }
