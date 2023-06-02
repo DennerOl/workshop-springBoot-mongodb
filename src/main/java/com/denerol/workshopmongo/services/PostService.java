@@ -26,7 +26,7 @@ public class PostService {
 	
 // metodo para usar o metodo do repository
 	public List<Post> findByTitle(String text){
-		return repo.findByTitleContainingIgnoreCase(text);
+		return repo.serchTitle(text);
 	}
 	
 }
